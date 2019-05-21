@@ -1,0 +1,1560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" href="pic/favicon.ico" type="image/x-icon">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=0, maximum-scale=0, user-scalable=yes,shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    input {
+      outline: none;
+    }
+
+    a {
+      font-size: 12px;
+      color: #3377AA;
+    }
+
+    .contentSection a:hover {
+      background-color: #37A;
+      color: white;
+    }
+
+    .book a:hover {
+      background-color: #37A;
+      color: white;
+    }
+
+    .read a:hover {
+      background-color: #37A;
+      color: white;
+    }
+
+    .footer a:hover {
+      background-color: #37A;
+      color: white;
+    }
+
+
+    .header {
+      width: 1000px;
+      height: 90px;
+      /* border: 1px solid #000; */
+      margin: 0 auto;
+    }
+
+    .header_left:hover {
+      cursor: pointer;
+    }
+
+    .header_left {
+      width: 200px;
+      height: 100%;
+      background-image: url('pic/logo_db@2x.png');
+      background-size: 75%;
+      background-repeat: no-repeat;
+      background-position: 43% 47%;
+      float: left;
+
+    }
+
+    .header_left a {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+    }
+
+
+
+    .header .header_input {
+      width: 280px;
+      height: 100%;
+      /* border: 1px solid #000; */
+      float: left;
+      position: relative;
+      color: rgb(235, 235, 235)
+    }
+
+    .header .header_input span {
+      display: block;
+      width: 40px;
+      height: 30px;
+      border: 1px solid rgb(182, 182, 182);
+      position: absolute;
+      top: 50%;
+      margin-top: -15px;
+      border-left-color: transparent;
+      right: 0;
+      background-image: url('pic/search.png');
+      background-size: 50%;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+
+    .header .header_input span:hover {
+      cursor: pointer;
+    }
+
+    .header .header_input input {
+      width: 240px;
+      height: 30px;
+      border: 1px solid rgb(182, 182, 182);
+      border-right-color: transparent;
+      outline: none;
+      position: absolute;
+      top: 50%;
+      margin-top: -15px;
+      /* margin-left:15px;  */
+    }
+
+    .header .header_right {
+      width: 450px;
+      height: 100%;
+      background-image: url('pic/anony_nav_logo@2x.png');
+      background-repeat: no-repeat;
+      /* border: 1px solid #000; */
+      float: right;
+      background-size: 100%;
+      background-position: center center;
+      margin-right: 33px;
+    }
+
+    .header .header_right a {
+      /* display: inline-block; */
+      /* border: 1px solid #000; */
+      width: 12%;
+      height: 30px;
+      float: left;
+      margin-top: 27px;
+    }
+
+    .middle {
+      width: 100%;
+      min-width: 1200px;
+      height: 300px;
+      background-color: rgb(225, 235, 225);
+      position: relative;
+    }
+
+    .middle .middle_pic {
+      width: 650px;
+      height: 300px;
+      /* border: 1px solid #000; */
+      background-image: url('pic/16874860437wq5ntbd7.jpg');
+      background-size: 100% 300px;
+      background-repeat: no-repeat;
+      margin-left: 90px;
+      float: left;
+      margin-right: -40px;
+    }
+
+    .middle .middle_title {
+      width: 200px;
+      height: 300px;
+      float: left;
+
+    }
+
+    .middle .middle_title h2 {
+      width: 100%;
+      height: 30px;
+      margin-top: 50%;
+      font-size: 25px;
+      font-weight: 200;
+      font-family: Helvetica, Arial, sans-serif;
+
+    }
+
+    .middle .middle_title button {
+      width: 114px;
+      height: 30px;
+      background-color: rgb(22, 171, 22);
+      border-radius: 3px;
+      color: white;
+      margin-left: 0;
+      margin-top: 15px;
+
+
+
+    }
+
+    .middle .form_login {
+      float: left;
+      height: 100%;
+      width: 280px;
+    }
+
+    .middle .form_login .login_head {
+      width: 100%;
+      height: 40px;
+      /* border: 1px solid #000; */
+      margin-top: 10px;
+    }
+
+    .middle .form_login .login_left {
+      height: 40px;
+      width: 50%;
+      line-height: 40px;
+      /* border: 1px solid #000; */
+      float: left;
+      box-sizing: border-box;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      border-bottom: 1px solid black;
+
+    }
+
+    .middle .form_login .login_left:hover {
+      cursor: pointer;
+    }
+
+    .middle .form_login .login_right:hover {
+      cursor: pointer;
+    }
+
+    .middle .form_login .login_right {
+      height: 40px;
+      width: 50%;
+      /* border: 1px solid #000; */
+      float: right;
+      box-sizing: border-box;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      /* border: none; */
+      line-height: 40px;
+
+    }
+
+    .login_title {
+      /* display: none;
+       */
+      font-size: 10px;
+      text-align: center;
+      color: gray;
+      padding-top: 20px;
+    }
+
+    .login_title a {
+      color: rgb(91, 172, 93);
+    }
+
+    .login_main {
+      width: 280px;
+      height: 150px;
+      /* border: 1px solid #000; */
+      margin-top: 10px;
+      box-sizing: border-box;
+
+    }
+
+    .login_main span {
+      font-size: 12px;
+    }
+
+    .login_main a {
+      text-decoration: none;
+      color: #41ac52;
+      margin-left: 100px;
+
+    }
+
+    .login_form_main {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-size: 12px;
+    }
+
+    .login_form_main div {
+      border: 1px solid rgb(222, 224, 223, );
+      height: 35px;
+      background: #fff;
+      border-radius: 3px;
+      font-size: 12px;
+    }
+
+    .login_form_main div input[type="submit"] {
+      background: rgb(145, 211, 145);
+      width: 100%;
+      height: 100%;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .plus_input{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+    }
+    .plus_input input {
+      border: none;
+      height: 100%;
+      width: 80%;
+    }
+
+    .plus_input span {
+      padding-right: 10px;
+      margin-right: 10px;
+      text-align: center;
+      font-size: 15px;
+      text-align: center;
+      font-weight: 600;
+      border-right: 1px solid #e4e6e5;
+    }
+
+    .plus_input span:hover {
+      cursor: pointer;
+    }
+
+    .vali {
+      height: 90%;
+      width: 60%;
+      border-color: transparent;
+    }
+
+    .vali+span {
+      display: inline-block;
+      width: 60px;
+      margin-left: 35px;
+      color: #007722;
+    }
+
+    .vali+span:hover {
+      cursor: pointer;
+    }
+
+    .contentSection {
+      width: 100%;
+      height: 585px;
+      min-width: 1200px;
+    }
+
+    .flag {
+      height: 435px;
+      width: 930px;
+      margin: 45px auto;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .flag>.contentLeft,
+    .contentMiddle,
+    .contentRight {
+      height: 100%;
+      width: 30%;
+      /* border: 1px solid #000; */
+
+
+    }
+
+    .contentLeft_pic {
+      height: 80%;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 22px;
+      font-size: 12px;
+      text-decoration: none;
+      color: #37a;
+      justify-content: space-between;
+
+    }
+
+    .contentLeft_pic img {
+      width: 100%;
+    }
+
+    .contentLeft_pic div {
+      width: 48%;
+      height: 55%;
+      /* border: 1px solid #000; */
+    }
+
+    .contentLeft_pic a {
+      text-decoration: none;
+      color: #37a;
+
+    }
+
+    .contentLeft a:hover {
+      background-color: #37A;
+      color: white;
+    }
+
+    .contentMiddle a {
+      text-decoration: none;
+    }
+
+    .contentMiddle li {
+      margin: 17px 0 0 0;
+
+    }
+
+    .contentMiddle_title {
+      font-size: 12px;
+      color: #3377AA;
+    }
+
+    .diary {
+      font-size: 12px;
+      color: #999999;
+    }
+
+    .sec_title {
+      font-size: 12px;
+      color: #666;
+    }
+
+    .contentRight img {
+      width: 90%;
+    }
+
+    .contentRight p {
+      color: #007722;
+      display: inline-block;
+    }
+
+    .contentRight a {
+      text-decoration: none;
+    }
+
+    .contentRight ul {
+      width: 100%;
+      /* border: 1px solid #000; */
+      height: 65%;
+    }
+
+    .contentRight ul li {
+      font-size: 12px;
+
+      margin: 10px;
+    }
+
+    .contentRight ul a {
+      display: block;
+    }
+
+    .contentRight ul p {
+      color: #AAA;
+      font-size: 13px;
+    }
+
+    .book {
+      margin-top: -70px;
+      height: 615px;
+      width: 100%;
+      background-color: rgb(245, 245, 245);
+      min-width: 1200px;
+      position: relative;
+      border-color: rgb(245, 245, 245)
+        /* border: 1px solid #000; */
+
+    }
+
+    .book a {
+      text-decoration: none;
+    }
+
+    .book_main {
+      position: absolute;
+      width: 1000px;
+      height: 450px;
+      /* border: 1px solid #000; */
+      margin: 0 auto;
+      display: flex;
+      flex-direction: row;
+      top: 40px;
+      left: 15%;
+
+
+
+    }
+
+    .book_main_left {
+      width: 150px;
+      height: 100%;
+      /* border: 1px solid #000; */
+    }
+
+    .book_main_right {
+      width: 80%;
+      height: 100%;
+      /* border: 1px solid #000; */
+    }
+
+    .book_main_left p a {
+      font-size: 24px;
+      color: #494949;
+    }
+
+    .book_main_left p a:hover {
+      color: white;
+    }
+
+    .book_main_right p {
+      margin-top: 5px;
+      font-size: 15px;
+      color: #007722;
+      line-height: 24px;
+    }
+
+    .book_main_pic {
+      width: 100%;
+      height: 94%;
+      /* border: 1px solid #000; */
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .book_main_pic div {
+      box-sizing: border-box;
+      width: 20%;
+      height: 50%;
+      /* border: 1px solid #000; */
+      background-size: 100px 140px;
+      background-repeat: no-repeat;
+      background-position: center top;
+      position: relative;
+    }
+
+    .book_main_pic div .pic_title {
+      position: absolute;
+      bottom: 33px;
+      left: 25%;
+      font-size: 13px;
+      line-height: 15px;
+      margin-left: -30px;
+      text-align: center;
+    }
+
+    .book_main_pic .pic_for {
+      position: absolute;
+      bottom: 4px;
+      color: #999999;
+      font-size: 12px;
+      left: 30%;
+    }
+
+    .book_main_pic div .pic_title a {
+      color: black;
+
+
+    }
+
+    .book_main_pic div .pic_title a:hover {
+      color: white;
+    }
+
+    .book_main_pic div:nth-child(1) {
+      background-image: url('https://img3.doubanio.com/dae/niffler/niffler/images/04203a30-674c-11e9-b726-0242ac110015.jpg');
+
+    }
+
+    .book_main_pic div:nth-child(2) {
+      background-image: url('https://img3.doubanio.com/dae/niffler/niffler/images/654ba2ba-6579-11e9-845d-0242ac110003.jpg');
+
+    }
+
+    .book_main_pic div:nth-child(3) {
+      background-image: url('https://img1.doubanio.com/dae/niffler/niffler/images/5fba20d6-5a95-11e9-85dd-0242ac110008.jpg');
+
+    }
+
+    .book_main_pic div:nth-child(4) {
+      background-image: url('https://img3.doubanio.com/dae/niffler/niffler/images/c8365fba-5515-11e9-8870-0242ac110025.jpg');
+
+    }
+
+    .book_main_pic div:nth-child(5) {
+      background-image: url('https://img3.doubanio.com/dae/niffler/niffler/images/d188afb4-4f93-11e9-8730-0242ac11000e.jpg');
+
+    }
+
+    .book_main_pic div:nth-child(6) {
+      background-image: url('https://img1.doubanio.com/dae/niffler/niffler/images/af54b920-4718-11e9-b6b0-0242ac11000a.png');
+
+    }
+
+    .book_main_pic div:nth-child(7) {
+      background-image: url('https://img3.doubanio.com/dae/niffler/niffler/images/a971d254-4ea2-11e9-a73d-0242ac11005f.jpg');
+
+    }
+
+    .book_main_pic div:nth-child(8) {
+      background-image: url('https://img1.doubanio.com/dae/niffler/niffler/images/9bb615f8-3f3e-11e9-9727-0242ac110018.jpg');
+
+    }
+
+    .book_main_pic div:nth-child(9) {
+      background-image: url('https://img1.doubanio.com/dae/niffler/niffler/images/9807a714-39ad-11e9-861c-0242ac11001c.jpg');
+
+    }
+
+    .book_main_pic div:nth-child(10) {
+      background-image: url('https://img3.doubanio.com/dae/niffler/niffler/images/c3a9890a-3421-11e9-b55c-0242ac110005.jpg');
+
+    }
+
+    .read {
+      width: 100%;
+      height: 655px;
+      /* border: 1px solid #000; */
+    }
+
+    .read_main {
+      width: 950px;
+      height: 580px;
+      /* border: 1px solid #000; */
+      margin: 0 auto;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+    }
+
+    .read_main .read_main_left {
+      width: 15%;
+      height: 100%;
+      /* border: 1px solid red;
+       */
+
+    }
+
+    .read_main_center {
+      width: 55%;
+      height: 100%;
+      /* border: 1px solid #000; */
+    }
+
+    .read_main_right {
+      width: 30%;
+      height: 100%;
+      /* border: 1px solid green; */
+    }
+
+    .read_main_left h3 a {
+      color: #4a2f14;
+      font-size: 24px;
+      line-height: 150%;
+      text-decoration: none;
+      font-weight: 400;
+
+    }
+
+    .read_main_left h3 {
+      margin-top: 40px;
+    }
+
+    .read_main_left h3 a:hover {
+      color: white;
+    }
+
+    .read_main_left ul li a {
+      font: 12px Helvetica, Arial, sans-serif;
+      line-height: 1.62;
+      font-size: 14px;
+      text-decoration: none;
+      color: #614e3c;
+    }
+
+    .read_main_left ul li a:hover {
+      color: white;
+    }
+
+    .read_main_left ul li {
+      margin-top: 7px;
+    }
+
+    .brand {
+      margin-top: 30px;
+      width: 50px;
+      height: 50px;
+      /* border: 1px solid #000; */
+      border-radius: 8px;
+      background-image: url('https://img3.doubanio.com/f/sns/02f0736c7010c4bdccebbd6d6b140ccb1506cf6b/pics/sns/app/app_icons_50_10.jpg');
+      background-repeat: no-repeat;
+      background-position: 0;
+      box-shadow: 1px 1px 2px #999;
+
+
+    }
+
+    .read_main_left span>a {
+      text-decoration: none;
+      color: #614e3c;
+    }
+
+    .read_main_left span>a:hover {
+      color: white;
+    }
+
+    .read_main_center>p {
+      color: #007722;
+      font-size: 15px;
+      margin-top: 45px;
+
+    }
+
+    .read_main_center>p>a {
+      text-decoration: none;
+      color: #4a2f14
+    }
+
+    .read_main_center>p>a:hover {
+      color: white;
+    }
+
+    .read_main_center_pic {
+      width: 100%;
+      height: 88%;
+      /* border: 1px solid #000; */
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .read_main_center_pic>div {
+      width: 23%;
+      height: 45%;
+      /* border: 1px solid #000; */
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .read_main_center_pic>div>img {
+      width: 80%;
+    }
+
+    .read_main_center_pic>div>p {
+      text-align: center;
+      font-size: 12px;
+      letter-spacing: normal;
+      word-spacing: normal;
+      margin-top: 6px;
+
+    }
+
+    .read_main_center_pic>div>p>a {
+      text-decoration: none;
+    }
+
+    .down_brand {
+      background-color: #999a95;
+      padding: 2px 10px;
+      border-radius: 4px;
+      color: white;
+    }
+
+    .read_main_right>p {
+      margin-top: 45px;
+      color: #007722;
+    }
+
+    .read_main_right>p>a {
+      text-decoration: none;
+    }
+
+    .read_main_right>ul>li {
+      width: 100%;
+      height: 60px;
+      /* border: 1px solid #000; */
+      margin-top: 10px;
+      border-top: none;
+      border-bottom-color: #eaeaea;
+      border-left: none;
+      border-right: none;
+    }
+
+    .read_main_right ul li>ul {
+      font-size: 12px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .read_main_right ul li>ul>li {
+      width: 15%;
+      margin-bottom: -35px;
+      height: 50px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    .read_main_right ul li>ul>li>a {
+      text-decoration: none;
+    }
+
+    .footer {
+      width: 950px;
+      height: 130px;
+      /* border: 1px solid #000; */
+      border-top: 1px dashed gray;
+      margin: 0 auto;
+    }
+
+    .footer_left {
+      width: 435px;
+      height: 100%;
+      color: #999;
+      font-size: 12px;
+      margin-top: 7px;
+      float: left;
+
+    }
+
+    .footer_right {
+      float: right;
+      width: 450px;
+      height: 100px;
+      /* border: 1px solid #000; */
+    }
+
+    .footer_right ul {
+      width: 100%;
+      height: 30%;
+    }
+
+    .footer_right ul li {
+      float: left;
+      margin-left: 8px;
+    }
+
+    .footer_right ul li a {
+      text-decoration: none;
+      font-size: 12px;
+    }
+
+    .footer_right img {
+      width: 150px;
+      height: 63px;
+    }
+
+    .passwordback {
+      text-align: right;
+      font-size: 12px;
+      color: #41ac52;
+      margin-top: 20px;
+    }
+
+    .pswcopy {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .region{
+      height: 300px;
+      top: 0;
+      right: 340px;
+      position: absolute;
+      width: 200px;
+      border: 1px solid #000;
+      z-index: 999;
+      display: none;
+      overflow:scroll;
+      background-color: rgba(225, 225, 225, .9);
+      
+
+    }
+    .region ul li{
+      border-bottom:1px solid gray; 
+      margin-bottom:20px; 
+      font-size: 14px;
+      color: #494949;
+      font-weight: 600;
+    }
+    .region ul li span{
+      display: inline-block;
+      height: 40%;
+      width: 20px;
+      margin-left: 70px;
+      z-index: 1000;
+    }
+    .region ul li span:hover{
+      cursor: pointer;
+      color: red;
+    }
+    .region ul li:nth-child(1){
+     position: relative;
+    }
+    .phone_title{
+      font-weight: 100;
+      width: 30px;
+      height: 100%;
+      display: block;
+      padding-right:10px;
+      margin-top: 7px; 
+
+     
+      
+    }
+    .inputcopy{
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <div class="header_left">
+      <a href="https://www.douban.com"></a>
+    </div>
+    <div class="header_input">
+      <input type="text" placeholder="书籍、&nbsp;电影、&nbsp;音乐、&nbsp;小组、&nbsp;小站、&nbsp;成员、&nbsp;">
+      <span></span>
+    </div>
+    <div class="header_right">
+      <a href="https://book.douban.com/"></a>
+      <a href="https://movie.douban.com/"></a>
+      <a href="https://music.douban.com/"></a>
+      <a href="https://www.douban.com/group/"></a>
+      <a href="https://https://www.douban.com/location/hongkong/"></a>
+      <a href="https://douban.fm/"></a>
+      <a href="https://time.douban.com/?dt_time_source=douban-web_anonymous_index_top_nav"></a>
+      <a href="https://market.douban.com/?utm_campaign=anonymous_top_nav&utm_source=douban&utm_medium=pc_web"></a>
+
+    </div>
+  </div>
+  <div class="middle">
+    <div class="region">
+     <ul>
+       <li>
+        选择国际区号 
+        <span>X</span>
+       </li>
+       <li>
+         UK &nbsp; <span>+44</span>
+
+       </li>
+       <li>
+          TW&nbsp;<span> +852</span>
+
+       </li>
+       <li>
+           HK&nbsp;<span>+86</span>
+
+       </li>
+       <li>
+           USA&nbsp;<span>+1</span>
+
+       </li>
+       <li>
+           UK&nbsp;<span>+886</span>
+
+       </li>
+       <li>
+         中国&nbsp;<span>+86</span> 
+
+       </li>
+       <li>
+          中国&nbsp;<span>+86</span> 
+
+       </li>
+       <li>
+          中国&nbsp;<span>+86</span> 
+
+       </li>
+       <li>
+          中国&nbsp;<span>+86</span> 
+
+       </li>
+     </ul>
+    </div>
+    <div class="middle_pic">
+
+    </div>
+    <div class="middle_title">
+      <h2>豆瓣&nbsp;6.0</h2>
+      <button>下载豆瓣&nbsp;App</button>
+    </div>
+    <div class="form_login">
+      <div class="login_head">
+        <div class="login_left">
+          短信登录／注册
+        </div>
+        <div class="login_right">
+          密码登录
+        </div>
+
+      </div>
+      <p class="login_title" id="first">登录注册表示同意 <a>豆瓣使用协议、隐私政策</a></p>
+      <p class="passwordback" style="display: none;">找回密码</p>
+      <div class="login_main">
+        <form action="#" class="login_form_main">
+          <div class="plus_input">
+            <input type="text" placeholder="手机号/邮箱" style="display: none;">
+            <span class="phone_title">+86</span>
+            <input class="inputcopy" type="phone" name="phoneNumber" maxlength="13" placeholder="手机号">
+          </div>
+          <div>
+            <input type="password" class="pswcopy" placeholder="密码" style="display: none;">
+            <input class="vali" type="phone" name="validate" placeholder="验证码">
+            <span class="vali_get">获取验证码</span>
+          </div>
+          <div class="submit_button">
+            <input type="submit" value="登陆豆瓣">
+          </div>
+        </form>
+        <input type="checkbox" name="" id="">
+        <span>下次自动登陆</span>
+        <a href="" class="recieve">收不到验证码</a>
+
+      </div>
+
+    </div>
+
+  </div>
+  <div class="contentSection">
+    <div class="flag">
+
+
+      <div class="contentLeft">
+        <p>热点内容......<a href="#">(更多)</a></p>
+        <div class="contentLeft_pic">
+          <div>
+            <a href="https://www.douban.com/photos/album/30322941/">
+              <img src="https://img3.doubanio.com/view/photo/albumcover/public/p2554833245.webp" alt="">
+            </a>
+            <a href="https://www.douban.com/photos/album/30322941/">有名字的那一帧</a>
+          </div>
+          <div>
+            <a href="https://www.douban.com/photos/album/1677995617/">
+              <img src="https://img3.doubanio.com/view/photo/albumcover/public/p2534370983.webp" alt="">
+            </a>
+            <a href="https://www.douban.com/photos/album/1677995617/">【经海山怪故事】一天一反话</a>
+
+          </div>
+          <div>
+            <a href="https://www.douban.com/photos/album/1685460090/">
+              <img src="https://img1.doubanio.com/view/photo/albumcover/public/p2549362429.webp" alt="">
+            </a>
+            <a href="https://www.douban.com/photos/album/1685460090/">美国-旧金山（富士X100F）</a>
+
+          </div>
+          <div>
+            <a href="https://www.douban.com/photos/album/130728507/">
+              <img src="https://img1.doubanio.com/view/photo/albumcover/public/p2181876788.webp" alt="">
+            </a>
+            <a href="https://www.douban.com/photos/album/130728507/">名侦探柯南 凶手联盟</a>
+
+          </div>
+        </div>
+      </div>
+      <div class="contentMiddle">
+        <ul>
+          <p class="contentMiddle_title">
+            <a href="https://www.douban.com"></a>
+            倒不如将自己封存在二次元这个世界中 上辑
+            </a>
+          </p>
+          <p class="diary"> <span>禾目的日记</span></p>
+          <p class="sec_title">平成的动画电影的后半部分的话题是：动画的未来。 for my little cyber strawberr...</p>
+          <a href="https://www.douban.com/note/713853974/">北京后半夜的秘密，都藏在便利店夜班店员的脑袋里</a>
+          <li>
+            <a href="https://www.douban.com/note/713810218/">Gudrun Gut：柏林最具持久魅力的女性音乐人</a>
+          </li>
+          <li>
+            <a href="https://www.douban.com/note/712577692/">反对996加班制：10万中国程序员拿起《劳动法》曝光IT大厂</a>
+          </li>
+          <li>
+            <a href="https://www.douban.com/note/713699929/">今年开春画的漫画</a>
+          </li>
+          <li>
+            <a href="https://www.douban.com/note/712786289/">伤心天妇罗症候群</a>
+          </li>
+          <li>
+            <a href="https://www.douban.com/note/715630842/">在技术统治的世界，人文学科正面临衰亡吗？</a>
+          </li>
+          <li>
+            <a href="https://www.douban.com/note/713810218/">Gudrun Gut：柏林最具持久魅力的女性音乐人</a>
+          </li>
+          <li>
+            <a href="https://www.douban.com/note/713522696/">美丽剪影</a>
+          </li>
+          <li>
+            <a href="https://www.douban.com/note/708063004/">平成的动画电影 PART II 方向</a>
+          </li>
+
+        </ul>
+
+      </div>
+      <div class="contentRight">
+        <div>
+          <img src="https://img1.doubanio.com/view/dale-online/dale_ad/public/8e1f5d9cbbf7d3b.jpg" alt="">
+          <p>热门话题 · · · · · ·</p>(<a href="https://www.douban.com/gallery/">去话题广场</a>)
+        </div>
+        <ul>
+          <li>
+            <a href="https://www.douban.com/gallery/topic/68629/?from=hot_topic_anony_sns">我的多重曝光摄影作品</a>
+            <p>223456人浏览</p>
+          </li>
+          <li>
+            <a href="https://www.douban.com/gallery/topic/69290/?from=hot_topic_anony_sns">重读文学经典名著后的新发现</a>
+            <p>2834823人浏览</p>
+
+          </li>
+          <li>
+            <a href="https://www.douban.com/gallery/topic/68726/?from=hot_topic_anony_sns">被气味引爆的回忆瞬间</a>
+            <p>26384人浏览</p>
+
+          </li>
+          <li>
+            <a href="https://www.douban.com/gallery/topic/69310/?from=hot_topic_anony_sns">学术明星对我们产生了怎样的影响？</a>
+            <p>537483人浏览</p>
+
+          </li>
+          <li>
+            <a href="https://www.douban.com/gallery/topic/56140/?from=hot_topic_anony_sns">视频·我在跳舞的时候最快乐</a>
+            <p>179898人浏览</p>
+
+          </li>
+          <li>
+            <a href="https://www.douban.com/gallery/topic/63871/?from=hot_topic_anony_sns">豆瓣绘梦大赛·画出你的梦境</a>
+            <p>285668人浏览</p>
+
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+  </div>
+  <div class="book">
+    <div class="book_main">
+      <div class="book_main_left">
+        <p><a href="https://m.douban.com/time/?dt_time_source=douban-web_anonymous">豆瓣时间</a></p>
+
+      </div>
+      <div class="book_main_right">
+        <p>热门专栏 ······ <a href="https://time.douban.com?dt_time_source=douban-web_anonymous" target="_self">(更多)</a>
+        </p>
+        <div class="book_main_pic">
+          <div>
+            <p class="pic_title"><a href="">
+                笔墨的视界--十八个传世碑帖学通书法
+              </a></p>
+            <p class="pic_for">视频专栏</p>
+          </div>
+          <div>
+            <p class="pic_title"><a href="">
+                张爱玲和她的时代——理解经典的五个侧面
+              </a></p>
+            <p class="pic_for">音频专栏</p>
+          </div>
+          <div>
+            <p class="pic_title"><a href="">
+                人类思维简史——精神世界的10次跃迁
+              </a></p>
+            <p class="pic_for">成长营</p>
+          </div>
+          <div>
+            <p class="pic_title"><a href="">
+                解说式音乐会——30天听懂古典音乐
+              </a></p>
+            <p class="pic_for">成长营</p>
+          </div>
+          <div>
+            <p class="pic_title"><a href="">
+                随手出大片——手机摄影成长营
+              </a></p>
+            <p class="pic_for">成长营</p>
+          </div>
+          <div>
+            <p class="pic_title"><a href="">
+                写手好字 · 实用行楷30日课
+              </a></p>
+            <p class="pic_for">成长营</p>
+          </div>
+          <div>
+            <p class="pic_title"><a href="">
+                从零开始写隶书——隶书技法成长营（第三期）
+              </a></p>
+            <p class="pic_for">成长营</p>
+          </div>
+          <div>
+            <p class="pic_title"><a href="">
+                超级IP的诞生——泛娱乐化时代爆款逻辑
+              </a></p>
+            <p class="pic_for">成长营</p>
+          </div>
+          <div>
+            <p class="pic_title"><a href="">
+                无处不在的偏差——社会心理学揭示的思维盲点
+              </a></p>
+            <p class="pic_for">音频专栏</p>
+          </div>
+          <div>
+            <p class="pic_title"><a href="">
+                去！把巫师叫醒——奇幻文学“四大名著”入门
+              </a></p>
+            <p class="pic_for">音频专栏</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="read">
+    <div class="read_main">
+      <div class="read_main_left">
+        <h3>
+          <a href="https://book.douban.com/">读书</a>
+
+        </h3>
+        <ul>
+          <li>
+            <a href="#">
+              分类浏览
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              阅读
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              作者
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              书评
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              购书单
+            </a>
+          </li>
+        </ul>
+        <a href="https://read.douban.com/app/">
+          <div class="brand">
+          </div>
+        </a>
+        <span><a href="https://read.douban.com/app/">豆瓣阅读</a></span>
+        <div>
+
+        </div>
+      </div>
+      <div class="read_main_center">
+        <p>新书速递 · · · · · · <a href="">( 更多)</a></p>
+        <div class="read_main_center_pic">
+
+          <div>
+            <img src="https://img3.doubanio.com/view/subject/m/public/s32284912.jpg" alt="">
+            <p><a>葛洛根的最后一...</a></p>
+            <p>〔美〕劳伦斯·...</p>
+            <p><a href="https://read.douban.com/reader/ebook/112989880/" class="down_brand">免费试读</a></p>
+          </div>
+          <div>
+            <img src="https://img3.doubanio.com/view/subject/m/public/s32279884.jpg" alt="">
+            <p><a>葛洛根的最后一...</a></p>
+            <p>〔美〕劳伦斯·...</p>
+            <p><a href="https://read.douban.com/reader/ebook/112989880/" class="down_brand">免费试读</a></p>
+          </div>
+          <div>
+            <img src="https://img3.doubanio.com/view/subject/m/public/s32267440.jpg" alt="">
+            <p><a>葛洛根的最后一...</a></p>
+            <p>〔美〕劳伦斯·...</p>
+            <p><a href="https://read.douban.com/reader/ebook/112989880/" class="down_brand">免费试读</a></p>
+          </div>
+          <div>
+            <img src="https://img3.doubanio.com/view/subject/m/public/s30014124.jpg" alt="">
+            <p><a>葛洛根的最后一...</a></p>
+            <p>〔美〕劳伦斯·...</p>
+            <p><a href="https://read.douban.com/reader/ebook/112989880/" class="down_brand">免费试读</a></p>
+          </div>
+          <div>
+            <img src="https://img3.doubanio.com/view/ark_article_cover/large/public/52473802.jpg" alt="">
+            <p><a>葛洛根的最后一...</a></p>
+            <p>〔美〕劳伦斯·...</p>
+            <p><a href="https://read.douban.com/reader/ebook/112989880/" class="down_brand">免费试读</a></p>
+          </div>
+          <div>
+            <img src="https://img3.doubanio.com/view/ark_article_cover/large/public/48769396.jpg" alt="">
+            <p><a>葛洛根的最后一...</a></p>
+            <p>〔美〕劳伦斯·...</p>
+            <p><a href="https://read.douban.com/reader/ebook/112989880/" class="down_brand">免费试读</a></p>
+          </div>
+          <div>
+            <img src="https://img3.doubanio.com/view/ark_column_cover/large/public/8180834.jpg" alt="">
+            <p><a>葛洛根的最后一...</a></p>
+            <p>〔美〕劳伦斯·...</p>
+            <p><a href="https://read.douban.com/reader/ebook/112989880/" class="down_brand">免费试读</a></p>
+          </div>
+          <div>
+            <img src="https://img3.doubanio.com/view/ark_column_cover/large/public/8694983.jpg" alt="">
+            <p><a hre>葛洛根的最后一...</a></p>
+            <p>〔美〕劳伦斯·...</p>
+            <p><a href="https://read.douban.com/reader/ebook/112989880/" class="down_brand">免费试读</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="read_main_right">
+        <p>热门标签 · · · · · · (<a href="">更多</a> )</p>
+        <ul>
+          <li>
+            <ul>
+              <li>[文学]</li>
+              <li>
+                <a href="">小说</a>
+              </li>
+              <li>
+                <a href="">随笔</a>
+              </li>
+              <li>
+                <a href="">日本文学</a>
+              </li>
+              <li>
+                <a href="">散文</a>
+              </li>
+              <li>
+                <a href="">诗歌</a>
+              </li>
+              <li>
+                <a href="">童话</a>
+              </li>
+              <li>
+                <a href="">名著</a>
+              </li>
+              <li>
+                <a href="">港台</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <ul>
+              <li>[流行]</li>
+              <li>
+                <a href="">小说</a>
+              </li>
+              <li>
+                <a href="">随笔</a>
+              </li>
+              <li>
+                <a href="">日本文学</a>
+              </li>
+              <li>
+                <a href="">散文</a>
+              </li>
+              <li>
+                <a href="">诗歌</a>
+              </li>
+              <li>
+                <a href="">童话</a>
+              </li>
+              <li>
+                <a href="">名著</a>
+              </li>
+              <li>
+                <a href="">港台</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <ul>
+              <li>[文化]</li>
+              <li>
+                <a href="">漫画</a>
+              </li>
+              <li>
+                <a href="">推理</a>
+              </li>
+              <li>
+                <a href="">绘本</a>
+              </li>
+              <li>
+                <a href="">青春</a>
+              </li>
+              <li>
+                <a href="">科幻</a>
+              </li>
+              <li>
+                <a href="">言情</a>
+              </li>
+              <li>
+                <a href="">奇幻</a>
+              </li>
+              <li>
+                <a href="">武侠</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <ul>
+              <li>[生活]</li>
+              <li>
+                <a href="">小说</a>
+              </li>
+              <li>
+                <a href="">随笔</a>
+              </li>
+              <li>
+                <a href="">日本文学</a>
+              </li>
+              <li>
+                <a href="">散文</a>
+              </li>
+              <li>
+                <a href="">诗歌</a>
+              </li>
+              <li>
+                <a href="">童话</a>
+              </li>
+              <li>
+                <a href="">名著</a>
+              </li>
+              <li>
+                <a href="">港台</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <ul>
+              <li>[经营]</li>
+              <li>
+                <a href="">小说</a>
+              </li>
+              <li>
+                <a href="">随笔</a>
+              </li>
+              <li>
+                <a href="">日本文学</a>
+              </li>
+              <li>
+                <a href="">散文</a>
+              </li>
+              <li>
+                <a href="">诗歌</a>
+              </li>
+              <li>
+                <a href="">童话</a>
+              </li>
+              <li>
+                <a href="">名著</a>
+              </li>
+              <li>
+                <a href="">港台</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <ul>
+              <li>[科技]</li>
+              <li>
+                <a href="">科普</a>
+              </li>
+              <li>
+                <a href="">互联网</a>
+              </li>
+              <li>
+                <a href="">编程</a>
+              </li>
+              <li>
+                <a href="">交互设计</a>
+              </li>
+              <li>
+                <a href="">算法</a>
+              </li>
+              <li>
+                <a href="">神经网络</a>
+              </li>
+              <li>
+                <a href="">通信</a>
+              </li>
+              <li>
+                <a href="">更多</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer_left">
+      © 2005－2019 douban.com, all rights reserved 北京豆网科技有限公司<br>
+      京ICP证090015号 京ICP备11027288号 网络视听许可证0110418号<br>
+      京网文[2015]2026-368号 京公网安备11010502000728 新出网证(京)字129号<br>
+      违法和不良信息举报电话：4008353331-9<br>
+      <a href="">中国互联网举报中心</a> 电话：<a href="tel:+">12377</a> 新出发京批字第直160029号
+    </div>
+    <div class="footer_right">
+      <ul>
+        <li>
+          <a href="">关于豆瓣</a>
+        </li>
+        <li>
+          <a href="">在豆瓣工作</a>
+        </li>
+        <li>
+          <a href="">联系我们</a>
+        </li>
+        <li>
+          <a href="">免责声明</a>
+        </li>
+        <li>
+          <a href="">帮助中心</a>
+        </li>
+        <li>
+          <a href="">移动应用</a>
+        </li>
+        <li>
+          <a href="">豆瓣广告</a>
+        </li>
+      </ul>
+
+      <a href="">
+        <img src="https://img3.doubanio.com/img/files/file-1489464722.jpg" alt="">
+      </a>
+    </div>
+  </div>
+  <script>
+    $(function () {
+      $('.login_right').click(function () {
+        $(this).css('border-bottom', `1px solid black`)
+        $('.login_left').css('border-bottom', `transparent`);
+        $('.phone_title,.inputcopy,.login_title,.vali,.vali_get').hide();
+        $('.passwordback,input[placeholder="手机号/邮箱"],.pswcopy').show();
+        $('.recieve').text('海外手机登陆')
+      });
+      $('.login_left').click(function () {
+        $(this).css('border-bottom', `1px solid black`)
+        $('.login_right').css('border-bottom', `transparent`);
+        $('.phone_title,.inputcopy,.login_title,.vali,.vali_get').show();
+        $('.passwordback,input[placeholder="手机号/邮箱"],.pswcopy').hide();
+        $('.recieve').text('收不到验证码')
+      });
+      $('.phone_title').click(function () { 
+        $('.region').show();
+         
+       });
+       $('.region ul li span').click(function () { 
+         $('.region').hide();
+        });
+        $(' .region ul li').not( $('.region ul li').eq(0)).click(function () { 
+         let $areacode=$(this).children().text( );
+          $('.phone_title').text($areacode)
+         }) 
+    })
+  </script>
+</body>
+
+</html>
