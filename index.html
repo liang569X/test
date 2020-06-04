@@ -871,12 +871,12 @@
       display: none;
       overflow:scroll;
       background-color: rgba(225, 225, 225, .9);
-      
+
 
     }
     .region ul li{
-      border-bottom:1px solid gray; 
-      margin-bottom:20px; 
+      border-bottom:1px solid gray;
+      margin-bottom:20px;
       font-size: 14px;
       color: #494949;
       font-weight: 600;
@@ -901,10 +901,10 @@
       height: 100%;
       display: block;
       padding-right:10px;
-      margin-top: 7px; 
+      margin-top: 7px;
 
-     
-      
+
+
     }
     .inputcopy{
       display: inline-block;
@@ -937,7 +937,7 @@
     <div class="region">
      <ul>
        <li>
-        选择国际区号 
+        选择国际区号
         <span>X</span>
        </li>
        <li>
@@ -961,19 +961,19 @@
 
        </li>
        <li>
-         中国&nbsp;<span>+86</span> 
+         中国&nbsp;<span>+86</span>
 
        </li>
        <li>
-          中国&nbsp;<span>+86</span> 
+          中国&nbsp;<span>+86</span>
 
        </li>
        <li>
-          中国&nbsp;<span>+86</span> 
+          中国&nbsp;<span>+86</span>
 
        </li>
        <li>
-          中国&nbsp;<span>+86</span> 
+          中国&nbsp;<span>+86</span>
 
        </li>
      </ul>
@@ -1536,6 +1536,7 @@
         $('.passwordback,input[placeholder="手机号/邮箱"],.pswcopy').show();
         $('.recieve').text('海外手机登陆')
       });
+      // kkk
       $('.login_left').click(function () {
         $(this).css('border-bottom', `1px solid black`)
         $('.login_right').css('border-bottom', `transparent`);
@@ -1543,17 +1544,17 @@
         $('.passwordback,input[placeholder="手机号/邮箱"],.pswcopy').hide();
         $('.recieve').text('收不到验证码')
       });
-      $('.phone_title').click(function () { 
+      $('.phone_title').click(function () {
         $('.region').show();
-         
+
        });
-       $('.region ul li span').click(function () { 
+       $('.region ul li span').click(function () {
          $('.region').hide();
         });
-        $(' .region ul li').not( $('.region ul li').eq(0)).click(function () { 
+        $(' .region ul li').not( $('.region ul li').eq(0)).click(function () {
          let $areacode=$(this).children().text( );
           $('.phone_title').text($areacode)
-         }) 
+         })
     })
   </script>
 </body>
